@@ -15,5 +15,10 @@ Rails.application.routes.draw do
       delete :remove_item
     end
   end
+  resources :orders, only: [:new, :create] do
+    member do
+      get 'order_complete', to: 'orders#order_complete'
+    end
+  end
   post 'add_item_to_cart/:product_id', to: 'carts#add_item', as: 'add_item_to_cart'
 end
