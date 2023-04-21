@@ -4,3 +4,5 @@
 <% if @product.image.present? %>
 	<%= image_tag @product.image %>
 <% end %>
+<%= button_to "Add to cart", add_to_cart_product_path(@product), method: :post %>
+
