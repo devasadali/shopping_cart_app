@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
 
   def add_to_cart
     product = Product.find(params[:id])
-    @cart.add_item(product.id)
+    @cart.add_item(product)
     redirect_to root_path
   end
 

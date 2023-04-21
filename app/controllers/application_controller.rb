@@ -13,9 +13,18 @@ class Cart
     @items = items
   end
 
-  def add_item(product_id)
-    @items[product_id.to_s] ||= 0
-    @items[product_id.to_s] += 1
+  def add_item(product)
+    found = false
+    @items.each do |id, name|
+      if id == product.id
+        found = true
+        break
+      end
+    end
+
+    if !found
+      @items[product.id] = product.name
+    end
   end
 
   def remove_item(product_id)

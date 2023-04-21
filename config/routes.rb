@@ -10,4 +10,10 @@ Rails.application.routes.draw do
     end
   end
   root to: 'products#index'
+  resource :cart, only: [:show, :update, :destroy] do
+    member do
+      post :add_item
+      delete :remove_item
+    end
+  end
 end
