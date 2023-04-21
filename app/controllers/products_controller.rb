@@ -10,18 +10,6 @@ class ProductsController < ApplicationController
     @cart_item.product = @product
   end
 
-  def add_to_cart
-    product = Product.find(params[:id])
-    @cart.add_item(product)
-    redirect_to root_path
-  end
-
-  def remove_from_cart
-    product = Product.find(params[:id])
-    @cart.remove_item(product.id)
-    redirect_to root_path
-  end
-
   private
 
   def set_product

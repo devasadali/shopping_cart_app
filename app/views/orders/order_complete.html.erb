@@ -9,3 +9,4 @@
 <p>Payment Method: <%= @order.payment_method %></p>
 
 <p>Total Price: <%= number_to_currency(@order.total_price || 0) %></p>
+<p><%= link_to 'Orders History', orders_path %></p>

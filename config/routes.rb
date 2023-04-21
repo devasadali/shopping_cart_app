@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       delete :remove_item
     end
   end
-  resources :orders, only: [:new, :create] do
+  resources :orders, only: [:index, :new, :create] do
     member do
       get 'order_complete', to: 'orders#order_complete'
     end
