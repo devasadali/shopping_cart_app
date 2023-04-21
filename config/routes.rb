@@ -3,4 +3,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :products do
+    member do
+      post :add_to_cart
+    end
+  end
 end
