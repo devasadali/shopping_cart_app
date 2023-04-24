@@ -1,0 +1,13 @@
+<h1><%= @product.name %></h1>
+
+<p><%= @product.description %></p>
+
+<p>Price: <%= number_to_currency(@product.price) %></p>
+
+<% if @product.image.present? %>
+	<%= image_tag @product.image %>
+<% end %>
+
+<%= form_for @cart_item, url: add_item_to_cart_path(@product.id) do |f| %>
+  <%= f.submit 'Add to Cart' %>
+<% end %>

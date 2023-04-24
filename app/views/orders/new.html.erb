@@ -1,0 +1,25 @@
+<h1>Order Confirmation</h1>
+
+<%= form_for @order do |f| %>
+  <div class="mb-4">
+    <%= f.label :name, class: "block text-gray-700 font-bold mb-2" %>
+    <%= f.text_field :name, class: "form-input mt-1 block w-full" %>
+  </div>
+  
+  <div class="mb-4">
+    <%= f.label :address, class: "block text-gray-700 font-bold mb-2" %>
+    <%= f.text_area :address, class: "form-textarea mt-1 block w-full" %>
+  </div>
+  
+  <div class="mb-4">
+    <%= f.label :phone, class: "block text-gray-700 font-bold mb-2" %>
+    <%= f.text_field :phone, class: "form-input mt-1 block w-full" %>
+  </div>
+  
+  <div class="mb-4">
+    <%= f.label :payment_method, class: "block text-gray-700 font-bold mb-2" %>
+    <%= f.select :payment_method, options_for_select([["Credit Card", "credit_card"], ["PayPal", "paypal"]]), {}, { class: "form-select mt-1 block w-full" } %>
+  </div>
+  
+  <%= f.submit "Place Order", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+<% end %>

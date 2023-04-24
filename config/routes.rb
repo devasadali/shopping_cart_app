@@ -3,4 +3,22 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :products, only: [:index, :show] do
+    member do
+      post :add_to_cart
+      delete :remove_from_cart
+    end
+  end
+  root to: 'products#index'
+  resource :cart, only: [:show, :update, :destroy] do
+    member do
+      delete :remove_item
+    end
+  end
+  resources :orders, only: [:index, :new, :create] do
+    member do
+      get 'order_complete', to: 'orders#order_complete'
+    end
+  end
+  post 'add_item_to_cart/:product_id', to: 'carts#add_item', as: 'add_item_to_cart'
 end

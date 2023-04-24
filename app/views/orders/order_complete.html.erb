@@ -1,0 +1,12 @@
+<h1>Order Complete</h1>
+
+<p>Thank you for your order!</p>
+
+<p>Order Details:</p>
+<p>Name: <%= @order.name %></p>
+<p>Shipping Address: <%= @order.address %></p>
+<p>Phone Number: <%= @order.phone %></p>
+<p>Payment Method: <%= @order.payment_method %></p>
+
+<p>Total Price: <%= number_to_currency(@order.total_price || 0) %></p>
+<p><%= link_to 'Orders History', orders_path %></p>
